@@ -15,7 +15,11 @@ class UsersController extends AppController {
     public function isAuthorized($user) 
     {
         // Admin can access every action
-        if (isset($user['role']) && $user['role'] === 'admin' && in_array($this->action, array('edit', 'delete', 'add', 'logout', 'view', 'index'))) 
+        if (isset($user['role']) && $user['role'] === 'admin' && in_array($this->action, array('edit', 'delete', 'add', 'logout', 'view', 'index', 'admin'))) 
+        {
+            return true;
+        }
+        if (isset($user['role']) && $user['role'] === 'customer' && in_array($this->action, array('monitoring', 'logout'))) 
         {
             return true;
         }
@@ -33,11 +37,20 @@ class UsersController extends AppController {
             debug($this->Auth->login());
             if ($this->Auth->login()) 
             {
-                echo "$this->Auth->login()";
                 return $this->redirect($this->Auth->redirectUrl());
             }
             $this->Session->setFlash(__('Invalid username or password, try again'));
         }
+    }
+
+    public function admin()
+    {
+
+    }
+
+    public function monitoring($id = NULL)
+    {
+        //rechercher contenu veille juridique et balancer dans la vue
     }
 
     public function logout() 
@@ -73,6 +86,7 @@ class UsersController extends AppController {
         $this->set(compact('user'));
         if ($this->request->is('post')) 
         {
+            debug($this->request->data);
             $this->User->create();
             if ($this->User->save($this->request->data)) 
             {
