@@ -48,11 +48,6 @@ class UsersController extends AppController {
 
     }
 
-    public function monitoring($id = NULL)
-    {
-        //rechercher contenu veille juridique et balancer dans la vue
-    }
-
     public function logout() 
     {
         $this->Auth->logout();

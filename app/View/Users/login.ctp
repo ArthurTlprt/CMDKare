@@ -1,5 +1,5 @@
 <header>
-	<h1>Vous êtes sur votre espace administrateur</h1>
+	<h1>Connexion</h1>
 	<ul>
 		<li><?php echo $this->Html->link('add User', array('controller' => 'users','action' => 'add' )); ?></li>
 		<li><?php echo $this->Html->link('log in users', array('controller' => 'users','action' => 'login' )); ?></li>

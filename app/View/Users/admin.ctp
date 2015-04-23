@@ -5,7 +5,10 @@
 		<li><?php echo $this->Html->link('Modifier un accés', array('controller' => 'users','action' => 'edit' )); ?></li>
 		<li><?php echo $this->Html->link('Supprimer un accés', array('controller' => 'users','action' => 'edit' )); ?></li>
 		<li><?php echo $this->Html->link('Ajouter un post', array('controller' => 'posts','action' => 'add' )); ?></li>
-		<li><?php echo $this->Html->link('Modifier un post', array('controller' => 'posts','action' => 'add' )); ?></li>
-		<li><?php echo $this->Html->link('Supprimer un post', array('controller' => 'posts','action' => 'add' )); ?></li>
+		<li><?php echo $this->Html->link('Modifier un post', array('controller' => 'posts','action' => 'edit' )); ?></li>
+		<li><?php echo $this->Html->link('Supprimer un post', array('controller' => 'posts','action' => 'delete' )); ?></li>
+		<li><?php echo $this->Html->link('Ajouter une veille juridique', array('controller' => 'legalMonitorings','action' => 'add' )); ?></li>
+		<li><?php echo $this->Html->link('Modifier une veille juridique', array('controller' => 'legalMonitorings','action' => 'edit' )); ?></li>
+		<li><?php echo $this->Html->link('Supprimer une veille juridique', array('controller' => 'legalMonitorings','action' => 'delete' )); ?></li>
 	</ul>
 </header>

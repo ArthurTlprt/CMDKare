@@ -21,7 +21,7 @@ class ContentsController extends AppController
     }
 
 
-	function index()
+	public function index()
 	{
 		$contents = $this->Content->find('all');
 		//Je balance la purée et Guillaume se débrouille avec
