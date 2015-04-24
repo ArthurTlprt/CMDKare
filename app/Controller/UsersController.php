@@ -15,7 +15,7 @@ class UsersController extends AppController {
     public function isAuthorized($user) 
     {
         // Admin can access every action
-        if (isset($user['role']) && $user['role'] === 'admin' && in_array($this->action, array('edit', 'delete', 'add', 'logout', 'view', 'index', 'admin'))) 
+        if (isset($user['role']) && $user['role'] === 'admin' && in_array($this->action, array('edit','all', 'delete', 'add', 'logout', 'view', 'index', 'admin'))) 
         {
             return true;
         }
@@ -48,6 +48,12 @@ class UsersController extends AppController {
 
     }
 
+    public function all()
+    {
+        $users = $this->User->find('all');
+        $this->set(compact('users'));
+    }
+
     public function logout() 
     {
         $this->Auth->logout();
@@ -56,6 +62,9 @@ class UsersController extends AppController {
 
     public function index() 
     {
+        $user = $this->User->findById($this->Auth->user('id'));
+        debug($user);
+        $this->set(compact('user'));
         $this->User->recursive = 0;
         $this->set('users', $this->paginate());
         debug($this->Auth->login());
@@ -94,10 +103,10 @@ class UsersController extends AppController {
         }
     }
     
-    public function edit() 
+    public function edit($id = NULL) 
     {
-        debug($this->Auth->user('id'));
-        $this->User->id = $this->Auth->user('id');
+        //debug($this->Auth->user('id'));
+        $this->User->id = $id;
         if (!$this->User->exists()) 
         {
             throw new NotFoundException(__('Invalid user'));
@@ -125,7 +134,7 @@ class UsersController extends AppController {
         // Prior to 2.5 use
         // $this->request->onlyAllow('post');
         debug($this->Auth->login());
-        $this->request->allowMethod('post');
+        //$this->request->allowMethod('post');
 
         $this->User->id = $id;
         if (!$this->User->exists()) 
