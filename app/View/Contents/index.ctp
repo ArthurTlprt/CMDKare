@@ -4,10 +4,12 @@
 		<li><?php echo $this->Html->link('add Post', array('controller' => 'posts','action' => 'add' )); ?></li>
 	</ul>
 </header>
-<?php foreach ($contents as $k => $content): ?>
-	<h1><?= $content ['Content']['name']; ?> </h1>
-	<p><?= $content['Content']['content']; ?></p>
-	<p><?= $content['Content']['slug']; ?></p>
-	<p><?= $this->Html->link('lire la suite', "view/".$content['Content']['id']); ?></p>
-	<p><?= $this->Html->link('Modifier le post', "edit/".$content['Content']['id']); ?></p>
-<?php endforeach ?>
+
+<?php debug($contents); ?>
+	//ajouter boucle for avec compteur pour différencier $id_page
+<?php for($i=0; $i++; $i<$length)
+	<?php foreach ($contents as $k => $content): ?>
+		<h1><?= $content['Content']['body']; ?> </h1>
+	<?php endforeach ?>
+		<p><?= $this->Html->link('lire la suite', "view/".$content['Content']['id_page']); ?></p>
+		<p><?= $this->Html->link('Modifier le post', "edit/".$content['Content']['id_page']); ?></p>
