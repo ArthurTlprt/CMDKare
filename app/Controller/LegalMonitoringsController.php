@@ -4,7 +4,7 @@ class LegalMonitoringsController extends AppController
 
 	public function isAuthorized($user) {
         // Admin can access every action
-        if (isset($user['role']) && $user['role'] === 'admin' && in_array($this->action, array('add' ,'edit', 'delete', 'view', 'index'))) 
+        if (isset($user['role']) && $user['role'] === 'admin' && in_array($this->action, array('add' ,'edit', 'delete', 'view', 'index', 'admin'))) 
         {
             return true;
         }
@@ -32,6 +32,12 @@ class LegalMonitoringsController extends AppController
 		$this->set(compact('legalMonitorings'));
 	}
 
+	public function admin()
+	{
+		$legalMonitorings = $this->LegalMonitoring->find('all');
+		$this->set(compact('legalMonitorings'));
+	}
+
 	public function add()
 	{
 		if ($this->request->is('post')) 
@@ -45,7 +51,7 @@ class LegalMonitoringsController extends AppController
             {
             	debug($this->request->data);
                 $this->Session->setFlash(__('La veille juridique a été sauvegardée'));
-                //return $this->redirect(array('action' => 'add'));
+                return $this->redirect(array('action' => 'index'));
             }
             $this->Session->setFlash(
                 __('Please, try again.')

@@ -64,10 +64,17 @@ class UsersController extends AppController {
     {
         $user = $this->User->findById($this->Auth->user('id'));
         debug($user);
-        $this->set(compact('user'));
-        $this->User->recursive = 0;
-        $this->set('users', $this->paginate());
-        debug($this->Auth->login());
+        if (!$user) 
+        {
+            return $this->redirect(array('action' => 'login'));
+        } 
+        else 
+        {
+            $this->set(compact('user'));
+            $this->User->recursive = 0;
+            $this->set('users', $this->paginate());
+            debug($this->Auth->login());
+        }
     }
 
     public function view() 

@@ -24,7 +24,14 @@ class ContentsController extends AppController
 	public function index()
 	{
 		$contents = $this->Content->find('all');
+		$id_page_max = $this->Content->find('first', array(
+		    'fields' => array('MAX(id_page)'),
+		));
+
+		debug($id_page_max);
+
 		//Je balance la purée et Guillaume se débrouille avec
+		$this->set('id_page_max', $id_page_max);
 		$this->set(compact('contents'));
 	}
 

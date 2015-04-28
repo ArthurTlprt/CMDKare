@@ -5,11 +5,20 @@
 	</ul>
 </header>
 
-<?php debug($contents); ?>
-	//ajouter boucle for avec compteur pour différencier $id_page
-<?php for($i=0; $i++; $i<$length)
-	<?php foreach ($contents as $k => $content): ?>
-		<h1><?= $content['Content']['body']; ?> </h1>
-	<?php endforeach ?>
-		<p><?= $this->Html->link('lire la suite', "view/".$content['Content']['id_page']); ?></p>
-		<p><?= $this->Html->link('Modifier le post', "edit/".$content['Content']['id_page']); ?></p>
+<?php $end = $id_page_max[0]['MAX(id_page)']; 
+//debug($end); 
+		for ($i=0; $i <= $end; $i++) { 
+			foreach ($contents as $content){ ?>
+
+			<?php if($content['Content']['id_page'] == $i){ //echo $i;?>
+			<h1><?= $content['Content']['body']; ?> </h1>
+			<?php } ?>
+
+		<?php } ?>
+
+
+			<p><?= $this->Html->link('lire la suite',  array('action' => 'view', $content['Content']['id_page'])); ?></p>
+			<p><?= $this->Html->link('Modifier le post', array('action' => 'edit', $content['Content']['id_page'])); ?></p>
+			<?php
+		}
+		?>
