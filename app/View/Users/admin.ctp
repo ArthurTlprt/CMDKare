@@ -10,6 +10,8 @@
 		<li><?php echo $this->Html->link('Ajouter une veille juridique', array('controller' => 'legalMonitorings','action' => 'add' )); ?></li>
 		<li><?php echo $this->Html->link('Modifier une veille juridique', array('controller' => 'legalMonitorings','action' => 'edit' )); ?></li>
 		<li><?php echo $this->Html->link('Supprimer une veille juridique', array('controller' => 'legalMonitorings','action' => 'delete' )); ?></li>
+		<li><?php echo $this->Html->link('Modifier le contenu du site', array('controller' => 'contents','action' => 'admin' )); ?></li>
+
 	</ul>
 </header>
 

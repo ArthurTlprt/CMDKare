@@ -33,7 +33,29 @@ class PostsController extends AppController
 		debug($this->Auth->isAuthorized);
 		if ($this->request->is('post')) 
 		{
+			$extension = strtolower(pathinfo($this->request->data['Post']['avatar_file']['name'], PATHINFO_EXTENSION));
 			$this->request->data['Post']['user_id'] = $this->Auth->user('id');
+
+			$id = $this->Post->find('first', array('fields' => array('MAX(id)')));
+			$id = $id[0]['MAX(id)'];
+			settype($id, "integer");
+			$id++;
+			settype($id, "string");
+			//je prends l'id max de la table
+
+			if (!empty($this->request->data['Post']['avatar_file']['tmp_name'])
+				&& in_array($extension, array('jpg', 'jpeg', 'png'))) 
+			{
+				move_uploaded_file($this->request->data['Post']['avatar_file']['tmp_name'], IMAGES . 'avatars' . DS . $id . '.' . $extension);
+			}
+			elseif (!empty($this->request->data['Post']['avatar_file']['tmp_name'])) 
+			{
+				$this->Session->setFlash("Vous ne pouvez pas envoyer ce type de fichier");
+			}
+
+			//$id = $this->Post->find('first', array('fields' => array('MAX(id)')));
+			//je prends l'id max de la table
+			$this->request->data['Post']['avatar'] = "avatars/". $id .".". $extension;
 			if ($this->Post->save($this->request->data)) 
 			{
 				$this->Session->setFlash(__('Your post has been saved.'));
