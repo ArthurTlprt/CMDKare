@@ -90,7 +90,7 @@ class PartnersController extends AppController
 			//Je balance et Guillaume nous crée un joli form dynamique
 			$this->set(compact('partner'));
 
-			if($this->request->is('partner', 'put'))
+			if($this->request->is('post', 'put'))
 			{
 				$this->Partner->id = $id;
 
