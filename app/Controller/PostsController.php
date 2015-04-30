@@ -10,7 +10,7 @@ class PostsController extends AppController
 
     // Le propriétaire du post peut l'éditer et le supprimer
         // Admin can access every action
-        if (isset($user['role']) && $user['role'] === 'admin' && in_array($this->action, array('edit', 'delete', 'add', 'logout', 'view', 'index'))) 
+        if (isset($user['role']) && $user['role'] === 'admin' && in_array($this->action, array('edit', 'delete', 'add', 'logout', 'view', 'index', 'admin'))) 
         {
             return true;
         }
@@ -61,6 +61,10 @@ class PostsController extends AppController
 				$this->Session->setFlash(__('Your post has been saved.'));
 				return $this->redirect(array('action' => 'index'));
 			}
+			else
+			{
+				$this->Session->setFlash(__('Impossible de sauvegarder ce poste'));
+			}
 		}
 	}
 
@@ -69,6 +73,13 @@ class PostsController extends AppController
 		$posts = $this->Post->find('all');
 		$this->set(compact('posts'));
 	}
+
+	function admin()
+	{
+		$posts = $this->Post->find('all');
+		$this->set(compact('posts'));
+	}
+
 
 	public function view($id = NULL)
 	{
@@ -111,4 +122,25 @@ class PostsController extends AppController
 		}
 
 	}
+
+	public function delete($id = null) 
+    {
+        // Prior to 2.5 use
+        // $this->request->onlyAllow('post');
+        //debug($this->Auth->login());
+        //$this->request->allowMethod('post');
+
+        $this->Post->id = $id;
+        if (!$this->Post->exists()) 
+        {
+            throw new NotFoundException(__('Invalid post'));
+        }
+        if ($this->Post->delete()) 
+        {
+            $this->Session->setFlash(__('Post deleted'));
+            return $this->redirect(array('action' => 'index'));
+        }
+        $this->Session->setFlash(__('Post was not deleted'));
+        return $this->redirect(array('action' => 'index'));
+    }
 }
