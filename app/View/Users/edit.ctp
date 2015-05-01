@@ -12,7 +12,7 @@
 
 
 	<?= $this->Form->create('User'); ?>
-	<?= $this->Form->input('username', array('label' => 'Votre prénom', 'placeholder' => 'IDcccccc' )); ?>
+	<?= $this->Form->input('username', array('label' => 'Votre prénom', 'placeholder' => 'ID' )); ?>
 	<?= $this->Form->input('password', array('label' => 'votre mots de passe', 'placeholder' => 'insignifiant', 'type' => 'password' )); ?>
 	<?= $this->Form->input('email', array('label' => 'votre adresse mail','type' => 'email', 'placeholder' => 'ici' )); ?>
 <?= $this->Form->end('Submit the edition'); ?>

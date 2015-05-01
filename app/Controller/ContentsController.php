@@ -54,15 +54,15 @@ class ContentsController extends AppController
 	}
 
 	
-	public function edit($id_page = NULL)
+	public function edit($id = NULL)
 	{
-		$content = $this->Content->findById($id_page);
+		$content = $this->Content->findById($id);
 		if($content)
 		{
 			//Je balance et Guillaume nous crée un joli form dynamique
 			$this->set(compact('content'));
 
-			if($this->request->is('content', 'put'))
+			if($this->request->is('post', 'put'))
 			{
 				$this->Content->id = $id;
 
@@ -83,4 +83,17 @@ class ContentsController extends AppController
 		}
 
 	}
+
+	/*public function view($id = NULL)
+	{
+		$content = $this->Content->findById($id);
+		if($content)
+		{
+			$this->set(compact('content'));
+		}
+		else
+		{
+			die("This content doesn't exist");
+		}
+	}*/
 }
