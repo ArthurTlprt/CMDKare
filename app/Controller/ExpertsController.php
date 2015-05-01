@@ -1,5 +1,5 @@
 <?php
-class PartnersController extends AppController
+class ExpertsController extends AppController
 {
 
 	public function isAuthorized($user) {
@@ -29,30 +29,30 @@ class PartnersController extends AppController
 		debug($this->Auth->isAuthorized);
 		if ($this->request->is('post')) 
 		{
-			$extension = strtolower(pathinfo($this->request->data['Partner']['avatar_file']['name'], PATHINFO_EXTENSION));
-			$this->request->data['Partner']['user_id'] = $this->Auth->user('id');
+			$extension = strtolower(pathinfo($this->request->data['Expert']['avatar_file']['name'], PATHINFO_EXTENSION));
+			$this->request->data['Expert']['user_id'] = $this->Auth->user('id');
 
-			$id = $this->Partner->find('first', array('fields' => array('MAX(id)')));
+			$id = $this->Expert->find('first', array('fields' => array('MAX(id)')));
 			$id = $id[0]['MAX(id)'];
 			settype($id, "integer");
 			$id++;
 			settype($id, "string");
 			//je prends l'id max de la table
 
-			if (!empty($this->request->data['Partner']['avatar_file']['tmp_name'])
+			if (!empty($this->request->data['Expert']['avatar_file']['tmp_name'])
 				&& in_array($extension, array('jpg', 'jpeg', 'png'))) 
 			{
-				move_uploaded_file($this->request->data['Partner']['avatar_file']['tmp_name'], IMAGES . 'partners' . DS . $id . '.' . $extension);
+				move_uploaded_file($this->request->data['Expert']['avatar_file']['tmp_name'], IMAGES . 'experts' . DS . $id . '.' . $extension);
 			}
-			elseif (!empty($this->request->data['Partner']['avatar_file']['tmp_name'])) 
+			elseif (!empty($this->request->data['Expert']['avatar_file']['tmp_name'])) 
 			{
 				$this->Session->setFlash("Vous ne pouvez pas envoyer ce type de fichier");
 			}
 
-			//$id = $this->Partner->find('first', array('fields' => array('MAX(id)')));
+			//$id = $this->Expert->find('first', array('fields' => array('MAX(id)')));
 			//je prends l'id max de la table
-			$this->request->data['Partner']['avatar'] = "partners/". $id .".". $extension;
-			if ($this->Partner->save($this->request->data)) 
+			$this->request->data['Expert']['avatar'] = "experts/". $id .".". $extension;
+			if ($this->Expert->save($this->request->data)) 
 			{
 				$this->Session->setFlash(__('Your Partner has been saved.'));
 				return $this->redirect(array('action' => 'index'));
@@ -66,51 +66,51 @@ class PartnersController extends AppController
 
 	public function index()
 	{
-		$partners = $this->Partner->find('all');
+		$experts = $this->Expert->find('all');
 
-		$this->set(compact('partners'));
+		$this->set(compact('experts'));
 	}
 
 	public function admin()
 	{
-		$partners = $this->Partner->find('all');
+		$experts = $this->Expert->find('all');
 
-		//debug($partners);
+		//debug($experts);
 
 		//Je balance la purée et Guillaume se débrouille avec
-		$this->set(compact('partners'));
+		$this->set(compact('experts'));
 	}
 
 	
 	public function edit($id = NULL)
 	{
-		$partner = $this->Partner->findById($id);
-		if($partner)
+		$expert = $this->Expert->findById($id);
+		if($expert)
 		{
 			//Je balance et Guillaume nous crée un joli form dynamique
-			$this->set(compact('partner'));
+			$this->set(compact('expert'));
 
 			if($this->request->is('post', 'put'))
 			{
-				$this->Partner->id = $id;
-				unlink($this->Partner->avatar);
+				$this->Expert->id = $id;
+				unlink($this->Expert->avatar);
 
-				$extension = strtolower(pathinfo($this->request->data['Partner']['avatar_file']['name'], PATHINFO_EXTENSION));
-				if (!empty($this->request->data['Partner']['avatar_file']['tmp_name'])
+				$extension = strtolower(pathinfo($this->request->data['Expert']['avatar_file']['name'], PATHINFO_EXTENSION));
+				if (!empty($this->request->data['Expert']['avatar_file']['tmp_name'])
 				&& in_array($extension, array('jpg', 'jpeg', 'png'))) 
 				{
-					move_uploaded_file($this->request->data['Partner']['avatar_file']['tmp_name'], IMAGES . 'partners' . DS . $id . '.' . $extension);
+					move_uploaded_file($this->request->data['Expert']['avatar_file']['tmp_name'], IMAGES . 'experts' . DS . $id . '.' . $extension);
 				}
-				elseif (!empty($this->request->data['Partner']['avatar_file']['tmp_name'])) 
+				elseif (!empty($this->request->data['Expert']['avatar_file']['tmp_name'])) 
 				{
 					$this->Session->setFlash("Vous ne pouvez pas envoyer ce type de fichier");
 				}
 
-				//$id = $this->Partner->find('first', array('fields' => array('MAX(id)')));
+				//$id = $this->Expert->find('first', array('fields' => array('MAX(id)')));
 				//je prends l'id max de la table
-				$this->request->data['Partner']['avatar'] = "partners/". $id .".". $extension;
+				$this->request->data['Expert']['avatar'] = "experts/". $id .".". $extension;
 
-				if($this->Partner->save($this->request->data))
+				if($this->Expert->save($this->request->data))
 				{
 					$this->Session->setFlash(__('Votre content a été mis à jour.'));
 	            	return $this->redirect(array('action' => 'index'));
@@ -125,21 +125,22 @@ class PartnersController extends AppController
 		{
 			die("This content doesn't exist");
 		}
+
 	}
 
 	public function delete($id = null) 
     {
-        $this->Partner->id = $id;
-        if (!$this->Partner->exists()) 
+        $this->Expert->id = $id;
+        if (!$this->Expert->exists()) 
         {
             throw new NotFoundException(__('Invalid post'));
         }
-        if ($this->Partner->delete()) 
+        if ($this->Expert->delete()) 
         {
-            $this->Session->setFlash(__('Partner deleted'));
+            $this->Session->setFlash(__('Expert deleted'));
             return $this->redirect(array('action' => 'index'));
         }
-        $this->Session->setFlash(__('Partner was not deleted'));
+        $this->Session->setFlash(__('Expert was not deleted'));
         return $this->redirect(array('action' => 'index'));
     }
 
