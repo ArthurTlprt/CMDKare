@@ -130,6 +130,7 @@ class PartnersController extends AppController
 	public function delete($id = null) 
     {
         $this->Partner->id = $id;
+        unlink($this->Partner->avatar);
         if (!$this->Partner->exists()) 
         {
             throw new NotFoundException(__('Invalid post'));

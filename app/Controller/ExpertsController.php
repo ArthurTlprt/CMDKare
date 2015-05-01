@@ -131,6 +131,8 @@ class ExpertsController extends AppController
 	public function delete($id = null) 
     {
         $this->Expert->id = $id;
+        unlink($this->Expert->avatar);
+        
         if (!$this->Expert->exists()) 
         {
             throw new NotFoundException(__('Invalid post'));
