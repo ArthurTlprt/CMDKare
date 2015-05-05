@@ -12,20 +12,26 @@
 			foreach ($contents as $content){ ?>
 
 				<?php if($content['Content']['id_page'] == $i){
+
+					//dans ce switch j'applique 
+					//le html au bon contenu
+					//  $content['Content']['body'] contient le texte
+					// et $content['Content']['type'] contient le type de style à appliquer
+					// ces deux champs du tableau viennent de la table "contents"
 					switch ($content['Content']['type']) {
-						case 'titre1':
+						case 'h1-"blue-text"':
 							?>
-							<h1><?= $content['Content']['body']; ?> </h1>
+							<h1 class="blue-text"><?= $content['Content']['body']; ?></h1>
 							<?php
 							break;
-						case 'titre2':
+						case 'p':
 							?>
-							<h3><?= $content['Content']['body']; ?> </h3>
+							<p><?= $content['Content']['body']; ?> </p>
 							<?php
 							break;
-						case 'article1':
+						case 'h3-"blue-text-darken"':
 							?>
-							<article><p><?= $content['Content']['body']; ?> </article></p>
+							<h3 class="blue-text darken"> <?= $content['Content']['body']; ?> </h3>
 							<?php
 							break;
 						case 'article2':
@@ -41,10 +47,13 @@
 						default:
 							echo "ce type n'est pas prévu";
 							break;
-					}?>
+
+					?>
+
+					<?php } ?>
+						<p><?= $this->Html->link('Modifier le contenu', array('action' => 'edit', $content['Content']['id'])); ?></p>
 				<?php } ?>
 
 			<?php } ?>
-			<p><?= $this->Html->link('lire la suite',  array('action' => 'view', $content['Content']['id_page'])); ?></p>
-			<p><?= $this->Html->link('Modifier le post', array('action' => 'edit', $content['Content']['id_page'])); ?></p>
+
 		<?php }?>

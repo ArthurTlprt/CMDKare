@@ -9,7 +9,7 @@ class UsersController extends AppController {
         parent::beforeFilter();
 
         //page pouvant être vue sans être logged in
-        $this->Auth->allow('index', 'view');
+        $this->Auth->allow('index', 'view', 'mail');
     }
 
     public function isAuthorized($user) 
@@ -155,6 +155,16 @@ class UsersController extends AppController {
         }
         $this->Session->setFlash(__('User was not deleted'));
         return $this->redirect(array('action' => 'index'));
+    }
+
+    public function mail()
+    {
+        App::uses('CakeEmail', 'Network/Email');
+        $email = new CakeEmail('default');
+        $email->to('cmdkaretest@yopmail.com');
+        $email->subject('test mail');
+        debug($email->send('mon message'));
+        die('stop');
     }
     
 }

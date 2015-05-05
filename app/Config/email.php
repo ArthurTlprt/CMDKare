@@ -42,8 +42,8 @@ class EmailConfig {
 	public $default = array(
 		'transport' => 'Mail',
 		'from' => 'contact@localhost.fr',
-		//'charset' => 'utf-8',
-		//'headerCharset' => 'utf-8',
+		'charset' => 'utf-8',
+		'headerCharset' => 'utf-8',
 	);
 
 	public $smtp = array(

@@ -4,7 +4,7 @@ class ContentsController extends AppController
 
 	public function isAuthorized($user) {
         // Admin can access every action
-        if (isset($user['role']) && $user['role'] === 'admin' && in_array($this->action, array('edit', 'delete', 'logout', 'view', 'index'))) 
+        if (isset($user['role']) && $user['role'] === 'admin' && in_array($this->action, array('edit', 'delete', 'logout', 'view', 'index', 'admin'))) 
         {
             return true;
         }
