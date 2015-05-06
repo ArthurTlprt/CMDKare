@@ -57,3 +57,5 @@
 			<?php } ?>
 
 		<?php }?>
+
+		<?php echo $this->element('lastposts'); ?>

@@ -9,12 +9,13 @@
 //debug($end); 
 		for ($i=0; $i <= $end; $i++) { 
 			foreach ($contents as $content){ ?>
-
+					<?php
 					//dans ce switch j'applique 
 					//le html au bon contenu
 					//  $content['Content']['body'] contient le texte
 					// et $content['Content']['type'] contient le type de style à appliquer
 					// ces deux champs du tableau viennent de la table "contents"
+
 					switch ($content['Content']['type']) {
 						case 'h1-"blue-text"':
 							?>

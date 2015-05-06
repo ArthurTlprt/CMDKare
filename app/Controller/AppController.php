@@ -61,7 +61,7 @@ class AppController extends Controller {
         $this->Auth->allow('index', 'view');
     }*/
 
-    public function isAuthorized($user) 
+    /*public function isAuthorized($user) 
     {
         // Admin can access every action
         if (isset($user['role']) && $user['role'] === 'admin') 
@@ -70,7 +70,7 @@ class AppController extends Controller {
         }
         // Default deny
         return false;
-    }
+    }*/
 
     public function generateRandomString($length) 
     {

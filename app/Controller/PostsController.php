@@ -74,6 +74,12 @@ class PostsController extends AppController
 		$this->set(compact('posts'));
 	}
 
+	function getLastPosts()
+	{
+		$posts = $this->Post->find('all', array('limit' => '4'));
+		return $posts;
+	}
+
 	function admin()
 	{
 		$posts = $this->Post->find('all');
