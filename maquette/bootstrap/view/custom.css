@@ -1,0 +1,297 @@
+
+footer {
+  background-size : 100% 100%;
+  width: 100%;
+  height: 100%;
+  background-color: #009ACD;
+  color : #FFFFFF;
+}
+.divcenter{
+
+  margin-top: 10%;
+  margin-bottom: 10%;
+}
+
+.grey-text{
+  color : #4A708B;
+}
+
+/* line 377, ../sass/components/_color.scss */
+.blue.lighten-5 {
+  background-color: #E3F2FD !important;
+}
+
+/* line 380, ../sass/components/_color.scss */
+.blue-text.text-lighten-5 {
+  color: #E3F2FD !important;
+}
+
+/* line 377, ../sass/components/_color.scss */
+.blue.lighten-4 {
+  background-color: #BBDEFB !important;
+}
+
+/* line 380, ../sass/components/_color.scss */
+.blue-text.text-lighten-4 {
+  color: #BBDEFB !important;
+}
+
+/* line 377, ../sass/components/_color.scss */
+.blue.lighten-3 {
+  background-color: #90CAF9 !important;
+}
+
+/* line 380, ../sass/components/_color.scss */
+.blue-text.text-lighten-3 {
+  color: #90CAF9 !important;
+}
+
+/* line 377, ../sass/components/_color.scss */
+.blue.lighten-2 {
+  background-color: #64B5F6 !important;
+}
+
+/* line 380, ../sass/components/_color.scss */
+.blue-text.text-lighten-2 {
+  color: #64B5F6 !important;
+}
+
+/* line 377, ../sass/components/_color.scss */
+.blue.lighten-1 {
+  background-color: #42A5F5 !important;
+}
+
+/* line 380, ../sass/components/_color.scss */
+.blue-text.text-lighten-1 {
+  color: #42A5F5 !important;
+}
+
+/* line 369, ../sass/components/_color.scss */
+.blue {
+  background-color: #2196F3 !important;
+}
+
+/* line 372, ../sass/components/_color.scss */
+.blue-text {
+  color: #2196F3 !important;
+}
+
+/* line 377, ../sass/components/_color.scss */
+.blue.darken-1 {
+  background-color: #1E88E5 !important;
+}
+
+/* line 380, ../sass/components/_color.scss */
+.blue-text.text-darken-1 {
+  color: #1E88E5 !important;
+}
+
+/* line 377, ../sass/components/_color.scss */
+.blue.darken-2 {
+  background-color: #1976D2 !important;
+}
+
+/* line 380, ../sass/components/_color.scss */
+.blue-text.text-darken-2 {
+  color: #1976D2 !important;
+}
+
+/* line 377, ../sass/components/_color.scss */
+.blue.darken-3 {
+  background-color: #1565C0 !important;
+}
+
+/* line 380, ../sass/components/_color.scss */
+.blue-text.text-darken-3 {
+  color: #1565C0 !important;
+}
+
+/* line 377, ../sass/components/_color.scss */
+.blue.darken-4 {
+  background-color: #0D47A1 !important;
+}
+
+/* line 380, ../sass/components/_color.scss */
+.blue-text.text-darken-4 {
+  color: #0D47A1 !important;
+}
+
+/* line 377, ../sass/components/_color.scss */
+.blue.accent-1 {
+  background-color: #82B1FF !important;
+}
+
+/* line 380, ../sass/components/_color.scss */
+.blue-text.text-accent-1 {
+  color: #82B1FF !important;
+}
+
+/* line 377, ../sass/components/_color.scss */
+.blue.accent-2 {
+  background-color: #448AFF !important;
+}
+
+/* line 380, ../sass/components/_color.scss */
+.blue-text.text-accent-2 {
+  color: #448AFF !important;
+}
+
+/* line 377, ../sass/components/_color.scss */
+.blue.accent-3 {
+  background-color: #2979FF !important;
+}
+
+/* line 380, ../sass/components/_color.scss */
+.blue-text.text-accent-3 {
+  color: #2979FF !important;
+}
+
+/* line 377, ../sass/components/_color.scss */
+.blue.accent-4 {
+  background-color: #2962FF !important;
+}
+
+/* line 380, ../sass/components/_color.scss */
+.blue-text.text-accent-4 {
+  color: #2962FF !important;
+}
+
+/* line 377, ../sass/components/_color.scss */
+.light-blue.lighten-5 {
+  background-color: #e1f5fe !important;
+}
+
+/* line 380, ../sass/components/_color.scss */
+.light-blue-text.text-lighten-5 {
+  color: #e1f5fe !important;
+}
+
+/* line 377, ../sass/components/_color.scss */
+.light-blue.lighten-4 {
+  background-color: #b3e5fc !important;
+}
+
+/* line 380, ../sass/components/_color.scss */
+.light-blue-text.text-lighten-4 {
+  color: #b3e5fc !important;
+}
+
+/* line 377, ../sass/components/_color.scss */
+.light-blue.lighten-3 {
+  background-color: #81d4fa !important;
+}
+
+/* line 380, ../sass/components/_color.scss */
+.light-blue-text.text-lighten-3 {
+  color: #81d4fa !important;
+}
+
+/* line 377, ../sass/components/_color.scss */
+.light-blue.lighten-2 {
+  background-color: #4fc3f7 !important;
+}
+
+/* line 380, ../sass/components/_color.scss */
+.light-blue-text.text-lighten-2 {
+  color: #4fc3f7 !important;
+}
+
+/* line 377, ../sass/components/_color.scss */
+.light-blue.lighten-1 {
+  background-color: #29b6f6 !important;
+}
+
+/* line 380, ../sass/components/_color.scss */
+.light-blue-text.text-lighten-1 {
+  color: #29b6f6 !important;
+}
+
+/* line 369, ../sass/components/_color.scss */
+.light-blue {
+  background-color: #03a9f4 !important;
+}
+
+/* line 372, ../sass/components/_color.scss */
+.light-blue-text {
+  color: #03a9f4 !important;
+}
+
+/* line 377, ../sass/components/_color.scss */
+.light-blue.darken-1 {
+  background-color: #039be5 !important;
+}
+
+/* line 380, ../sass/components/_color.scss */
+.light-blue-text.text-darken-1 {
+  color: #039be5 !important;
+}
+
+/* line 377, ../sass/components/_color.scss */
+.light-blue.darken-2 {
+  background-color: #0288d1 !important;
+}
+
+/* line 380, ../sass/components/_color.scss */
+.light-blue-text.text-darken-2 {
+  color: #0288d1 !important;
+}
+
+/* line 377, ../sass/components/_color.scss */
+.light-blue.darken-3 {
+  background-color: #0277bd !important;
+}
+
+/* line 380, ../sass/components/_color.scss */
+.light-blue-text.text-darken-3 {
+  color: #0277bd !important;
+}
+
+/* line 377, ../sass/components/_color.scss */
+.light-blue.darken-4 {
+  background-color: #01579b !important;
+}
+
+/* line 380, ../sass/components/_color.scss */
+.light-blue-text.text-darken-4 {
+  color: #01579b !important;
+}
+
+/* line 377, ../sass/components/_color.scss */
+.light-blue.accent-1 {
+  background-color: #80d8ff !important;
+}
+
+/* line 380, ../sass/components/_color.scss */
+.light-blue-text.text-accent-1 {
+  color: #80d8ff !important;
+}
+
+/* line 377, ../sass/components/_color.scss */
+.light-blue.accent-2 {
+  background-color: #40c4ff !important;
+}
+
+/* line 380, ../sass/components/_color.scss */
+.light-blue-text.text-accent-2 {
+  color: #40c4ff !important;
+}
+
+/* line 377, ../sass/components/_color.scss */
+.light-blue.accent-3 {
+  background-color: #00b0ff !important;
+}
+
+/* line 380, ../sass/components/_color.scss */
+.light-blue-text.text-accent-3 {
+  color: #00b0ff !important;
+}
+
+/* line 377, ../sass/components/_color.scss */
+.light-blue.accent-4 {
+  background-color: #0091ea !important;
+}
+
+/* line 380, ../sass/components/_color.scss */
+.light-blue-text.text-accent-4 {
+  color: #0091ea !important;
+}
