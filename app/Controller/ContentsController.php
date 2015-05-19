@@ -4,14 +4,14 @@ class ContentsController extends AppController
 
 	public function isAuthorized($user) {
         // Admin can access every action
-        if (isset($user['role']) && $user['role'] === 'admin' && in_array($this->action, array('edit', 'delete', 'logout', 'view', 'index', 'admin'))) 
+        if (isset($user['role']) && $user['role'] === 'admin' && in_array($this->action, array('edit', 'delete', 'logout', 'admin'))) 
         {
             return true;
         }
-        if (isset($user['role']) && $user['role'] === 'customer' && in_array($this->action, array('view'))) 
+        /*if (isset($user['role']) && $user['role'] === 'customer' && in_array($this->action, array('view', 'index'))) 
         {
             return true;
-        }
+        }*/
         // Default deny
         return false;
 	}
@@ -21,7 +21,8 @@ class ContentsController extends AppController
         parent::beforeFilter();
 
         //page pouvant être vue sans être logged in
-        $this->Auth->allow('index');
+        //mais ne marche pas
+        $this->Auth->allow('index', 'view');
     }
 
 

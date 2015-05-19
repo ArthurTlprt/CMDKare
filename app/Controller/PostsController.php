@@ -10,7 +10,7 @@ class PostsController extends AppController
 
     // Le propriétaire du post peut l'éditer et le supprimer
         // Admin can access every action
-        if (isset($user['role']) && $user['role'] === 'admin' && in_array($this->action, array('edit', 'delete', 'add', 'logout', 'view', 'index', 'admin'))) 
+        if (isset($user['role']) && $user['role'] === 'admin' && in_array($this->action, array('index', 'edit', 'delete', 'add', 'logout', 'view', 'index', 'admin'))) 
         {
             return true;
         }
@@ -25,7 +25,7 @@ class PostsController extends AppController
         parent::beforeFilter();
 
         //page pouvant être vue sans être logged in
-        $this->Auth->allow('index', 'view');
+        $this->Auth->allow('index', 'view', 'getLastPosts');
     }
 
 	public function add() 
@@ -100,6 +100,7 @@ class PostsController extends AppController
 		}
 	}
 	
+	// + gerer la modif image avec edit
 	public function edit($id = NULL)
 	{
 		$post = $this->Post->findById($id);

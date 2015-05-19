@@ -45,7 +45,7 @@ class UsersController extends AppController {
 
     public function admin()
     {
-
+        debug($this->Auth->login());
     }
 
     public function all()

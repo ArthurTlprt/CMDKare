@@ -4,7 +4,7 @@
 		<li><?php echo $this->Html->link('add Post', array('controller' => 'posts','action' => 'add' )); ?></li>
 	</ul>
 </header>
-
+<?php echo $this->element('lastposts'); ?>
 <?php $end = $id_page_max[0]['MAX(id_page)']; 
 //debug($end); 
 		for ($i=0; $i <= $end; $i++) { 
@@ -53,3 +53,4 @@
 			<?php } ?>
 			<p><?= $this->Html->link('lire la suite',  array('action' => 'view', $content['Content']['id_page'])); ?></p>
 		<?php }?>
+
